@@ -952,12 +952,21 @@ fun ValidatingInputTextField(
 
 @Preview
 @Composable
-fun ValidateInput() {
-    val emailViewModel: EmailViewModel = viewModel<EmailViewModel>()
+fun PreviewValidatingInputTextField() {
     ValidatingInputTextField(
-        email = emailViewModel.email,
-        updateState = { input -> emailViewModel.updateEmail(input) },
-        validatorHasErrors = emailViewModel.emailHasErrors
+        email = "test@example.com",
+        updateState = {},
+        validatorHasErrors = false
+    )
+}
+
+@Preview
+@Composable
+fun PreviewValidatingInputTextField_Error() {
+    ValidatingInputTextField(
+        email = "invalid email",
+        updateState = {},
+        validatorHasErrors = true
     )
 }
 // [END android_compose_text_auto_format_phone_number_validatetext]
